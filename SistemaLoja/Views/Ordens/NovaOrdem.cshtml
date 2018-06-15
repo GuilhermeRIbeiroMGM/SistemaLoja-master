@@ -5,8 +5,10 @@
 }
 
 <h2>NovaOrdem</h2>
+<h5>@ViewBag.Error</h5>
+<h5>@ViewBag.Mensagem</h5>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("NovaOrdem","Ordens",FormMethod.Post))
 {
     @Html.AntiForgeryToken()
 

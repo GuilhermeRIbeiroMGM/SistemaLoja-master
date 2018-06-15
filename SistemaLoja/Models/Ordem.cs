@@ -12,7 +12,7 @@ namespace SistemaLoja.Models
 
         public int OrdemId { get; set; }
         public DateTime OrdemData { get; set; }
-        public int CustomizarId { get; set; }
+        public int CustoimizarId { get; set; }
 
         public OrdemStatus OrdemStatus { get; set; }
         public virtual Customizar Customizar { get; set;}
