@@ -1,20 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using SistemaLoja.Models;
 
+
 namespace SistemaLoja.Controllers
 {
+  
     public class ProdutoController : Controller
     {
         private SistemaLojaContext db = new SistemaLojaContext();
 
         // GET: Produto
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Produtoes.ToList());
@@ -36,6 +35,7 @@ namespace SistemaLoja.Controllers
         }
 
         // GET: Produto/Create
+        [Authorize(Roles = "Create")]
         public ActionResult Create()
         {
             return View();
@@ -59,6 +59,7 @@ namespace SistemaLoja.Controllers
         }
 
         // GET: Produto/Edit/5
+        [Authorize(Roles = "Edit")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -90,6 +91,7 @@ namespace SistemaLoja.Controllers
         }
 
         // GET: Produto/Delete/5
+        [Authorize(Roles = "Delete")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +109,7 @@ namespace SistemaLoja.Controllers
         // POST: Produto/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        
         public ActionResult DeleteConfirmed(int id)
         {
             Produto produto = db.Produtoes.Find(id);
