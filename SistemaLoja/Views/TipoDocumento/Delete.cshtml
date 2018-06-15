@@ -1,0 +1,31 @@
+﻿@model SistemaLoja.Models.TipoDocumento
+
+@{
+    ViewBag.Title = "Deletar Documento";
+}
+
+
+<h3>Tem certesa que deseja excluir?</h3>
+<div>
+    <h4>TipoDocumento - @Html.DisplayFor(model => model.Descricao)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Excluir" class="btn btn-default" /> |
+            @Html.ActionLink("Cancelar", "Index")
+        </div>
+    }
+</div>

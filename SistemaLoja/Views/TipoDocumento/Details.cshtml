@@ -1,0 +1,26 @@
+﻿@model SistemaLoja.Models.TipoDocumento
+
+@{
+    ViewBag.Title = "Detalhes do documento";
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>TipoDocumento - @Html.DisplayFor(model => model.Descricao)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descricao)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.TipoDocumentoId }) |
+    @Html.ActionLink("Voltar", "Index")
+</p>
